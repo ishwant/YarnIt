@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dashboardCardHeight">190dp</dimen>
+    <dimen name="dashboardCardWidth">160dp</dimen>
+    <dimen name="dashboardCardMargin">10dp</dimen>
+    <dimen name="cardImageWidth">64dp</dimen>
+    <dimen name="cardImageHeight">64dp</dimen>
+    <dimen name="cardImagePadding">10dp</dimen>
+    <dimen name="cardTitleTopMargin">10dp</dimen>
+    <dimen name="cardDividingLineViewHeight">1dp</dimen>
+    <dimen name="cardDividingLineViewMargin">10dp</dimen>
+    <dimen name="cardSubTitlePadding">5dp</dimen>
+    <dimen name="shadeCardWidth">100dp</dimen>
+    <dimen name="shadeCardMargin">5dp</dimen>
+    <dimen name="shadeCardTitleTopMargin">5dp</dimen>
+</resources>

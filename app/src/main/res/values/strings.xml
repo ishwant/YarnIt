@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">"YARN IT!"</string>
+    <string name="orderCard">Order</string>
+    <string name="profileCard">Profile</string>
+    <string name="orderCardSubtitle">Place your order</string>
+    <string name="profileCardSubtitle">View your profile</string>
+    <string name="placeOrderTitle">Place Order</string>
+    <string name="qty">Qty:</string>
 
 </resources>

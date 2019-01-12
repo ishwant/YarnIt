@@ -8,4 +8,106 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="cardDividingLineView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/cardDividingLineViewHeight</item>
+        <item name="android:layout_margin">@dimen/cardDividingLineViewMargin</item>
+        <item name="android:background">@color/lightgray</item>
+    </style>
+
+    <style name="cardViewStyle">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">@dimen/dashboardCardWidth</item>
+        <item name="android:layout_height">@dimen/dashboardCardHeight</item>
+        <item name="android:layout_margin">@dimen/dashboardCardMargin</item>
+    </style>
+
+    <style name="cardLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="cardImageView">
+        <item name="android:layout_width">@dimen/cardImageWidth</item>
+        <item name="android:layout_height">@dimen/cardImageHeight</item>
+        <item name="android:padding">@dimen/cardImagePadding</item>
+    </style>
+
+    <style name="AllCardsLayout">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="dashboardCardTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/cardTitleTopMargin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CardSubTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/cardSubTitlePadding</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="catalogHorizontalStripLayout">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="shadeCardLayout">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:layout_width">@dimen/shadeCardWidth</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/shadeCardMargin</item>
+    </style>
+
+    <style name="ShadeCardTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/shadeCardTitleTopMargin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="qtyLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="shadeCardDividingLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@color/lightgray</item>
+    </style>
+
+    <style name="ShadeCardQtyText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/shadeCardMargin</item>
+        <item name="android:text">@string/qty</item>
+    </style>
+
+    <style name="ShadeCardQtyInput">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:inputType">number</item>
+    </style>
+
 </resources>
