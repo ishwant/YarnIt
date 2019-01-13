@@ -6,14 +6,19 @@ import java.util.List;
 public class Order {
     private String orderID;
     private String userID;
-    private Date creationDate;
+    private long creationDate;
     private List<OrderItem> orderLineItems;
+    private OrderStatus orderStatus;
 
-    public Order(String orderID, String userID, Date creationDate, List<OrderItem> orderLineItems) {
+
+    public enum OrderStatus { Submitted , Delivered};
+
+    public Order(String orderID, String userID, long creationDate, List<OrderItem> orderLineItems, OrderStatus orderStatus) {
         this.setOrderID(orderID);
         this.setUserID(userID);
         this.setCreationDate(creationDate);
         this.setOrderLineItems(orderLineItems);
+        this.orderStatus = orderStatus;
     }
 
     public String getOrderID() {
@@ -32,11 +37,11 @@ public class Order {
         this.userID = userID;
     }
 
-    public Date getCreationDate() {
+    public long getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(long creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -46,5 +51,13 @@ public class Order {
 
     public void setOrderLineItems(List<OrderItem> orderLineItems) {
         this.orderLineItems = orderLineItems;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 }
