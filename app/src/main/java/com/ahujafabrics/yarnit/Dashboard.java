@@ -14,7 +14,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        cartCard = (CardView) findViewById(R.id.cartId);
+        cartCard = (CardView) findViewById(R.id.orderId);
         profileCard = (CardView) findViewById(R.id.profilId);
 
         cartCard.setOnClickListener(this);
@@ -26,7 +26,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         Intent i ;
 
         switch (v.getId()){
-            case R.id.cartId :
+            case R.id.orderId:
                 i = new Intent(this, order.class);
                 startActivity(i);
                 break;
