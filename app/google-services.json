@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "250808726496",
+    "firebase_url": "https://yarnit-af.firebaseio.com",
+    "project_id": "yarnit-af",
+    "storage_bucket": "yarnit-af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250808726496:android:3bc73035b3133a15",
+        "android_client_info": {
+          "package_name": "com.ahujafabrics.yarnit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250808726496-ln066t6ong8sstknf3racuvkjt6vlaa5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahujafabrics.yarnit",
+            "certificate_hash": "7bab7e54ca17f6e1ad226e9f05515b4b0fff053d"
+          }
+        },
+        {
+          "client_id": "250808726496-e7la57gecdmlmsb4ht0dfn8lcpo909p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqG-OFzkUNAuCWR3JN2YZZzRgCZitmgOo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250808726496-e7la57gecdmlmsb4ht0dfn8lcpo909p2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,8 @@ package com.ahujafabrics.yarnit;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +17,17 @@ public class order extends AppCompatActivity implements Button.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-
-
         checkoutButton = findViewById(R.id.checkoutButtonId);
         checkoutButton.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.checkoutmenu, menu);
+        return true;
+
     }
 
     public void onClick(View v){
