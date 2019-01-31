@@ -59,6 +59,13 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
             city.setText(profileData.getString(profileData.getColumnIndex("City")));
             contact.setText(profileData.getString(profileData.getColumnIndex("Phone")));
             email.setText(profileData.getString(profileData.getColumnIndex("Email")));
+
+            fname.setEnabled(false);
+            address1.setEnabled(false);
+            address2.setEnabled(false);
+            city.setEnabled(false);
+            contact.setEnabled(false);
+            email.setEnabled(false);
         }
         else{
             updateProfilebtn.setImageResource(R.drawable.ic_check_black_24dp);
@@ -79,6 +86,13 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
                     updateProfilebtn.setImageResource(R.drawable.ic_check_black_24dp);
                     updateProfilebtn.setBackgroundTintList(ColorStateList.valueOf(
                             ContextCompat.getColor(getApplicationContext(), R.color.deeppurple)));
+
+                    fname.setEnabled(true);
+                    address1.setEnabled(true);
+                    address2.setEnabled(true);
+                    city.setEnabled(true);
+                    contact.setEnabled(true);
+                    email.setEnabled(true);
                 }
                 else{
 
@@ -93,6 +107,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
                                 Toast.LENGTH_LONG).show();
                     }
                     else{
+
                         UserProfile user = new UserProfile(
                                 fname.getText().toString(),
                                 address1.getText().toString(),

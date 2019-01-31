@@ -30,7 +30,7 @@
 
                         <TextView
                             style="@style/ShadeCardTitle"
-                            android:text="S/1" />
+                            android:text="@string/s1" />
 
                         <View style="@style/shadeCardDividingLine" />
 
