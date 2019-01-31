@@ -27,11 +27,13 @@
             android:label="Place Order"></activity>
         <activity
             android:name=".Profile"
-            android:label="Your Profile">
-
-        </activity>
-        <activity android:name=".CartSummary"
+            android:label="Your Profile"></activity>
+        <activity
+            android:name=".CartSummary"
             android:label="Cart Details"></activity>
+        <activity
+            android:name=".Catalog"
+            android:label="Place Order"></activity>
     </application>
 
 </manifest>

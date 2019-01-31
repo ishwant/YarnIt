@@ -27,7 +27,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         switch (v.getId()){
             case R.id.orderId:
-                i = new Intent(this, PlaceOrder.class);
+                //i = new Intent(this, PlaceOrder.class);
+                i = new Intent(this, Catalog.class);
                 startActivity(i);
                 break;
             case R.id.profilId :
