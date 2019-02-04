@@ -12,10 +12,12 @@
                 android:id="@+id/shade"/>
             <View style="@style/shadeCardDividingLine" />
             <LinearLayout style="@style/qtyLayout">
-                <TextView style="@style/ShadeCardQtyText" />
+                <TextView style="@style/ShadeCardQtyText"
+                    android:id="@+id/qtyLabel"/>
                 <EditText
                     android:id="@+id/qty"
-                    style="@style/ShadeCardQtyInput" />
+                    style="@style/ShadeCardQtyInput"
+                    android:importantForAutofill="no" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

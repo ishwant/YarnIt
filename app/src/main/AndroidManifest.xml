@@ -33,7 +33,8 @@
             android:label="Cart Details"></activity>
         <activity
             android:name=".Catalog"
-            android:label="Place Order"></activity>
+            android:label="Place Order">
+        </activity>
     </application>
 
 </manifest>

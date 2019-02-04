@@ -1,66 +1,64 @@
 package com.ahujafabrics.yarnit;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ahujafabrics.yarnit.Activity.catalogItemView;
+import com.ahujafabrics.yarnit.Activity.CatalogItemView;
+import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
-public class Catalog extends Activity {
+public class Catalog extends AppCompatActivity {
 
-    GridView catalogGridView;
+    private Context mContext;
 
-    private static List<String> catalogList;
+    RelativeLayout mRelativeLayout;
+    private RecyclerView mRecyclerView;
+
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private static List<ShadeCard> catalogList;
+    private CatalogItemView catalogItemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView( R.layout.activity_catalog );
+        mContext = getApplicationContext();
+
         catalogList = setShades();
 
-        setContentView( R.layout.activity_catalog );
-
         // Get gridview object from xml file
+        mRecyclerView = (RecyclerView) findViewById(R.id.catalogGrid);
 
-        catalogGridView = (GridView) findViewById(R.id.catalogGrid);
+        mLayoutManager = new GridLayoutManager(mContext,3);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // Set custom adapter (GridAdapter) to gridview
+        // Initialize a new instance of RecyclerView Adapter instance
+        mAdapter = new CatalogItemView(mContext,catalogList);
 
-        catalogGridView.setAdapter(  new catalogItemView( this, catalogList ) );
+        // Set the adapter for RecyclerView
+        mRecyclerView.setAdapter(mAdapter);
 
-        catalogGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-
-
-                Toast.makeText(
-                        getApplicationContext(),
-                        ((TextView) v.findViewById( R.id.shade ))
-                                .getText(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 
-    private List<String> setShades(){
-        List<String> shadesList = new LinkedList<>();
+    private List<ShadeCard> setShades(){
+        List<ShadeCard> shadesList = new LinkedList<>();
 
-        for(int i=0; i<100; i++){
+        for(int i=1; i<=400; i++){
             String temp = "S/" + Integer.toString(i);
-            shadesList.add(temp);
+            shadesList.add(new ShadeCard(temp, i));
         }
         return shadesList;
     }

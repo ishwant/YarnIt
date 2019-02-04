@@ -27,11 +27,6 @@ public class PlaceOrder extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-
-
-
-
-
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("OrdersNew");
     }
