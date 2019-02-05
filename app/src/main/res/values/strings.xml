@@ -6,5 +6,19 @@
     <string name="profileCardSubtitle">View your profile</string>
     <string name="placeOrderTitle">Place Order</string>
     <string name="qty">Qty:</string>
+    <string name="title_activity_profile2">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="promptName">Name</string>
+    <string name="promptAddress1">Address Line 1</string>
+    <string name="promptAddress2">Address Line 2 (Optional)</string>
+    <string name="city">City</string>
+    <string name="phone">Contact</string>
+    <string name="email">Email Address (Optional)</string>
+    <string name="s1">S/1</string>
 
+    <string-array name="roles">
+        <item>Boutique</item>
+        <item>WholeSale</item>
+        <item>Admin</item>
+    </string-array>
 </resources>

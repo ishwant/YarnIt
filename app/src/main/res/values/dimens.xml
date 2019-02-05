@@ -6,7 +6,7 @@
     <dimen name="cardImageWidth">64dp</dimen>
     <dimen name="cardImageHeight">64dp</dimen>
     <dimen name="cardImagePadding">10dp</dimen>
-    <dimen name="cardTitleTopMargin">10dp</dimen>
+    <dimen name="cardTitleTopMargin">15dp</dimen>
     <dimen name="cardDividingLineViewHeight">1dp</dimen>
     <dimen name="cardDividingLineViewMargin">10dp</dimen>
     <dimen name="cardSubTitlePadding">5dp</dimen>
