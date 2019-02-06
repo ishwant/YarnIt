@@ -1,15 +1,16 @@
 package com.ahujafabrics.yarnit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ahujafabrics.yarnit.Activity.CatalogItemView;
@@ -51,6 +52,30 @@ public class Catalog extends AppCompatActivity {
         // Set the adapter for RecyclerView
         mRecyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.checkoutmenu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent i;
+        switch (item.getItemId()){
+            case R.id.checkout_menu:
+                i = new Intent(this, CartSummary.class);
+                startActivity(i);
+                Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private List<ShadeCard> setShades(){
