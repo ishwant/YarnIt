@@ -9,13 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ahujafabrics.yarnit.Activity.CatalogItemView;
+import com.ahujafabrics.yarnit.Repository.CartItem;
+import com.ahujafabrics.yarnit.Repository.CartLineItem;
 import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,10 +24,8 @@ public class Catalog extends AppCompatActivity {
 
     private Context mContext;
 
-    RelativeLayout mRelativeLayout;
     private RecyclerView mRecyclerView;
 
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private static List<ShadeCard> catalogList;
     private CatalogItemView catalogItemAdapter;
@@ -47,10 +46,10 @@ public class Catalog extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Initialize a new instance of RecyclerView Adapter instance
-        mAdapter = new CatalogItemView(mContext,catalogList);
+        catalogItemAdapter = new CatalogItemView(mContext,catalogList);
 
         // Set the adapter for RecyclerView
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(catalogItemAdapter);
 
     }
 
@@ -69,6 +68,10 @@ public class Catalog extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.checkout_menu:
                 i = new Intent(this, CartSummary.class);
+                CartLineItem cli = new CartLineItem("S/1", 30);
+                ArrayList<CartLineItem> cliList = new ArrayList<>();
+                cliList.add(cli);
+                i.putExtra("Selected", new CartItem("Thread", cliList));
                 startActivity(i);
                 Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
                 return true;
