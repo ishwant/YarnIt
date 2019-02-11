@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ahujafabrics.yarnit.R;
+import com.ahujafabrics.yarnit.Repository.OnCatalogItemClick;
 import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
 import java.util.List;
@@ -19,10 +20,12 @@ public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHo
 
     private Context context;
     private final List<ShadeCard> shadeGridValues;
+    private OnCatalogItemClick ctlgItemClick;
 
-    public CatalogItemView(Context context, List shadeGridValues){
+    public CatalogItemView(Context context, List shadeGridValues, OnCatalogItemClick listener){
         this.shadeGridValues = shadeGridValues;
         this.context = context;
+        this.ctlgItemClick = listener;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -88,6 +91,7 @@ public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHo
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             shadeGridValues.get(position).setQty(charSequence.toString());
+            ctlgItemClick.onCatalogClick(shadeGridValues);
         }
 
         @Override

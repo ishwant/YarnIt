@@ -1,23 +1,23 @@
 package com.ahujafabrics.yarnit.Repository;
 
 public class OrderItem {
-    private String orderLineItemID;
+    private Integer orderLineItemID;
     private String productType;
     private String shadeId;
     private Integer quantity;
 
-    public OrderItem(String orderLineItemID, String productType, String shadeId, Integer quantity) {
+    public OrderItem(Integer orderLineItemID, String productType, String shadeId, Integer quantity) {
         this.setOrderLineItemID(orderLineItemID);
         this.setProductType(productType);
         this.setShadeId(shadeId);
         this.setQuantity(quantity);
     }
 
-    public String getOrderLineItemID() {
+    public Integer getOrderLineItemID() {
         return orderLineItemID;
     }
 
-    public void setOrderLineItemID(String orderLineItemID) {
+    public void setOrderLineItemID(Integer orderLineItemID) {
         this.orderLineItemID = orderLineItemID;
     }
 

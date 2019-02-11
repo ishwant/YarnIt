@@ -14,13 +14,14 @@ import android.widget.Toast;
 import com.ahujafabrics.yarnit.Activity.CatalogItemView;
 import com.ahujafabrics.yarnit.Repository.CartItem;
 import com.ahujafabrics.yarnit.Repository.CartLineItem;
+import com.ahujafabrics.yarnit.Repository.OnCatalogItemClick;
 import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Catalog extends AppCompatActivity {
+public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
 
     private Context mContext;
 
@@ -29,6 +30,7 @@ public class Catalog extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private static List<ShadeCard> catalogList;
     private CatalogItemView catalogItemAdapter;
+    private List<ShadeCard> shadeGridValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class Catalog extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Initialize a new instance of RecyclerView Adapter instance
-        catalogItemAdapter = new CatalogItemView(mContext,catalogList);
+        catalogItemAdapter = new CatalogItemView(mContext,catalogList, this);
 
         // Set the adapter for RecyclerView
         mRecyclerView.setAdapter(catalogItemAdapter);
@@ -68,12 +70,12 @@ public class Catalog extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.checkout_menu:
                 i = new Intent(this, CartSummary.class);
-                CartLineItem cli = new CartLineItem("S/1", 30);
-                ArrayList<CartLineItem> cliList = new ArrayList<>();
-                cliList.add(cli);
-                i.putExtra("Selected", new CartItem("Thread", cliList));
+                //CartLineItem cli = new CartLineItem("S/1", 30);
+                //ArrayList<CartLineItem> cliList = new ArrayList<>();
+                //cliList.add(cli);
+                i.putExtra("SelectedShades", new CartItem("Thread",
+                        convertShadeCardstoCartItems(shadeGridValues)));
                 startActivity(i);
-                Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
                 return true;
 
             default:
@@ -82,12 +84,28 @@ public class Catalog extends AppCompatActivity {
     }
 
     private List<ShadeCard> setShades(){
-        List<ShadeCard> shadesList = new LinkedList<>();
+        List<ShadeCard> shadesList = new ArrayList<>();
 
         for(int i=1; i<=400; i++){
             String temp = "S/" + Integer.toString(i);
-            shadesList.add(new ShadeCard(temp, i));
+            shadesList.add(new ShadeCard(temp));
         }
         return shadesList;
+    }
+
+    @Override
+    public void onCatalogClick(List<ShadeCard> shadeGridValues) {
+        this.shadeGridValues = shadeGridValues;
+    }
+
+    public ArrayList<CartLineItem> convertShadeCardstoCartItems(List<ShadeCard> shadeGridValues){
+        ArrayList<CartLineItem> cartLineItems = new ArrayList<>();
+        for (ShadeCard sc:shadeGridValues
+             ) {
+            if(!sc.getQty().equals("")) {
+                cartLineItems.add(new CartLineItem(sc.getShade(),Integer.parseInt(sc.getQty())));
+            }
+        }
+        return cartLineItems;
     }
 }
