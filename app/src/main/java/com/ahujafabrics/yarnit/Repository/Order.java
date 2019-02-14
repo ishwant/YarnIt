@@ -9,14 +9,14 @@ import java.util.List;
 public class Order implements Parcelable {
     private String orderID;
     private String userID;
-    private long creationDate;
+    private String creationDate;
     private List<OrderItem> orderLineItems;
     private OrderStatus orderStatus;
 
 
     public enum OrderStatus { Submitted , Delivered};
 
-    public Order(String orderID, String userID, long creationDate,
+    public Order(String orderID, String userID, String creationDate,
                  List<OrderItem> orderLineItems, OrderStatus orderStatus) {
         this.setOrderID(orderID);
         this.setUserID(userID);
@@ -30,7 +30,7 @@ public class Order implements Parcelable {
     protected Order(Parcel in) {
         orderID = in.readString();
         userID = in.readString();
-        creationDate = in.readLong();
+        creationDate = in.readString();
         if (in.readByte() == 0x01) {
             orderLineItems = new ArrayList<OrderItem>();
             in.readList(orderLineItems, OrderItem.class.getClassLoader());
@@ -44,7 +44,7 @@ public class Order implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(orderID);
         dest.writeString(userID);
-        dest.writeLong(creationDate);
+        dest.writeString(creationDate);
         if (orderLineItems == null) {
             dest.writeByte((byte) (0x00));
         } else {
@@ -87,11 +87,11 @@ public class Order implements Parcelable {
         this.userID = userID;
     }
 
-    public long getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(long creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 

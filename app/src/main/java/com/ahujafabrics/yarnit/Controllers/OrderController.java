@@ -7,6 +7,7 @@ import com.ahujafabrics.yarnit.Repository.OrderItem;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,10 +33,16 @@ public class OrderController {
                     Integer.valueOf(cli.getQty())
             ));
         }
+
+        Date date = new Date();
+        Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        String creationDate = dt.format(newDate);
+
         Order order = new Order(
                 "1",
                 "ishwant",
-                new Date().getTime(),
+                creationDate,
                 orderItemList,
                 Order.OrderStatus.Submitted
         );

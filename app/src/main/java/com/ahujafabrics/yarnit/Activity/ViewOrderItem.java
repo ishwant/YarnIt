@@ -51,7 +51,7 @@ public class ViewOrderItem extends RecyclerView.Adapter<ViewOrderItem.ViewHolder
     public void onBindViewHolder(ViewOrderItem.ViewHolder holder, final int position){
 
         holder.orderedBy.setText(ordersList.get(position).getUserID());
-        holder.createdDate.setText(String.valueOf(ordersList.get(position).getCreationDate()));
+        holder.createdDate.setText(ordersList.get(position).getCreationDate());
         holder.itemView.setOnClickListener(new View.OnClickListener(){
 
             @Override
