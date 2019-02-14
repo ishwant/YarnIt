@@ -1,6 +1,8 @@
 package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,10 +48,19 @@ public class ViewOrderItem extends RecyclerView.Adapter<ViewOrderItem.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewOrderItem.ViewHolder holder, int position){
+    public void onBindViewHolder(ViewOrderItem.ViewHolder holder, final int position){
 
         holder.orderedBy.setText(ordersList.get(position).getUserID());
         holder.createdDate.setText(String.valueOf(ordersList.get(position).getCreationDate()));
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ViewOrderDetails.class);
+                intent.putExtra("SelectedOrder", ordersList.get(position));
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -1,6 +1,9 @@
 package com.ahujafabrics.yarnit.Repository;
 
-public class OrderItem {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class OrderItem implements Parcelable {
     private Integer orderLineItemID;
     private String productType;
     private String shadeId;
@@ -12,6 +15,27 @@ public class OrderItem {
         this.setShadeId(shadeId);
         this.setQuantity(quantity);
     }
+
+    public OrderItem(){}
+
+    protected OrderItem(Parcel in) {
+        orderLineItemID = in.readByte() == 0x00 ? null : in.readInt();
+        productType = in.readString();
+        shadeId = in.readString();
+        quantity = in.readByte() == 0x00 ? null : in.readInt();
+    }
+
+    public static final Creator<OrderItem> CREATOR = new Creator<OrderItem>() {
+        @Override
+        public OrderItem createFromParcel(Parcel in) {
+            return new OrderItem(in);
+        }
+
+        @Override
+        public OrderItem[] newArray(int size) {
+            return new OrderItem[size];
+        }
+    };
 
     public Integer getOrderLineItemID() {
         return orderLineItemID;
@@ -43,5 +67,28 @@ public class OrderItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (orderLineItemID == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(orderLineItemID);
+        }
+        dest.writeString(productType);
+        dest.writeString(shadeId);
+        if (quantity == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeInt(quantity);
+        }
     }
 }

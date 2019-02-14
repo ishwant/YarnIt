@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1,2"
+    android:paddingTop="@dimen/cardTitleTopMargin"
+    android:paddingRight="@dimen/cardTitleTopMargin"
+    android:paddingLeft="@dimen/cardTitleTopMargin">
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="CUSTOMER"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp" />
+        <TextView
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            android:id="@+id/userID"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="ORDER DATE"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp" />
+        <TextView
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            android:id="@+id/orderDate"/>
+    </TableRow>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/orderItems"
+        android:gravity="center"
+        android:columnWidth="100dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+
+</TableLayout>

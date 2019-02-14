@@ -38,6 +38,9 @@
         <activity
             android:name=".ViewOrder"
             android:label="View Order"></activity>
+        <activity
+            android:name=".Activity.ViewOrderDetails"
+            android:label="Order Details"></activity>
 
         <service android:name=".Repository.MyFirebaseMessagingService">
             <intent-filter>
