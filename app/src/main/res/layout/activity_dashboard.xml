@@ -58,5 +58,31 @@
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
+    <LinearLayout style="@style/AllCardsLayout">
+        <android.support.v7.widget.CardView
+            android:id="@+id/viewId"
+            style="@style/cardViewStyle">
+
+            <LinearLayout style="@style/cardLinearLayout">
+
+                <ImageView
+                    android:background="@drawable/circlebackground_green"
+                    android:src="@drawable/ic_view_list_black_24dp"
+                    style="@style/cardImageView" />
+
+                <TextView
+                    android:text="@string/viewCard"
+                    style="@style/dashboardCardTitleStyle" />
+
+                <View style="@style/cardDividingLineView" />
+
+                <TextView
+                    android:text="@string/viewCardSubtitle"
+                    style="@style/CardSubTitleStyle" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </LinearLayout>

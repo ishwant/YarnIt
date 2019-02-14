@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Arrays;
 import java.util.Date;
 
+// DELETE THIS CLASS
 public class PlaceOrder extends AppCompatActivity{
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
@@ -44,7 +45,6 @@ public class PlaceOrder extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.checkout_menu:
-                submitOrder();
                 Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
                 clean();
                 return true;
@@ -54,24 +54,6 @@ public class PlaceOrder extends AppCompatActivity{
         }
     }
 
-    public void submitOrder(){
-        qty = findViewById(R.id.qty1);
-        String quantity = qty.getText().toString();
-        OrderItem orderitem = new OrderItem(
-                "1",
-                "Thread",
-                "S1",
-                Integer.parseInt(quantity)
-        );
-        Order order = new Order(
-                "1",
-                "ishwant",
-                new Date().getTime(),
-                Arrays.asList(orderitem),
-                Order.OrderStatus.Submitted
-        );
-        mDatabaseReference.push().setValue(order);
-    }
 
     public void clean(){
         qty.setText("");

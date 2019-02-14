@@ -2,8 +2,10 @@
     <string name="app_name">"YARN IT!"</string>
     <string name="orderCard">Order</string>
     <string name="profileCard">Profile</string>
+    <string name="viewCard">View</string>
     <string name="orderCardSubtitle">Place your order</string>
     <string name="profileCardSubtitle">View your profile</string>
+    <string name="viewCardSubtitle">View Orders</string>
     <string name="placeOrderTitle">Place Order</string>
     <string name="qty">Qty:</string>
     <string name="title_activity_profile2">Sign in</string>

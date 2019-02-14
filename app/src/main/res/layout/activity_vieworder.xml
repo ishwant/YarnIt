@@ -3,22 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="1,2"
-    android:paddingTop="@dimen/cardTitleTopMargin"
-    android:paddingRight="@dimen/cardTitleTopMargin"
-    android:paddingLeft="@dimen/cardTitleTopMargin">
+    android:paddingTop="15dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp">
 
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="SHADE"
-            android:gravity="center"
+            android:text="CUSTOMER"
+            android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@color/colorAccent"
             android:padding="5dp"/>
         <TextView
-            android:text="QUANTITY"
+            android:text="ORDER DATE"
             android:textSize="20dp"
             android:gravity="center"
             android:textStyle="bold"
@@ -28,12 +28,9 @@
     </TableRow>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/cartItems"
-        android:gravity="center"
+        android:id="@+id/ordersList"
         android:columnWidth="100dp"
         android:stretchMode="columnWidth"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
-
-
 </TableLayout>

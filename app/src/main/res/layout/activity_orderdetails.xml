@@ -10,25 +10,45 @@
     <TableRow>
         <TextView
             android:layout_column="1"
-            android:text="SHADE"
+            android:text="CUSTOMER"
             android:gravity="center"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@color/colorAccent"
-            android:padding="5dp"/>
+            android:padding="5dp" />
         <TextView
-            android:text="QUANTITY"
             android:textSize="20dp"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@color/colorAccent"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:id="@+id/userID"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="ORDER DATE"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp" />
+        <TextView
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            android:id="@+id/orderDate"/>
     </TableRow>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/cartItems"
+        android:id="@+id/orderItems"
         android:gravity="center"
         android:columnWidth="100dp"
         android:stretchMode="columnWidth"
