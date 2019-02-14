@@ -34,8 +34,10 @@
             android:label="Cart Details"></activity>
         <activity
             android:name=".Catalog"
-            android:label="Place Order">
-        </activity>
+            android:label="Place Order"></activity>
+        <activity
+            android:name=".ViewOrder"
+            android:label="View Order"></activity>
 
         <service android:name=".Repository.MyFirebaseMessagingService">
             <intent-filter>

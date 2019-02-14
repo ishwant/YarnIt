@@ -7,7 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
-    private CardView cartCard, profileCard;
+    private CardView cartCard, profileCard, viewOrderCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +16,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         cartCard = (CardView) findViewById(R.id.orderId);
         profileCard = (CardView) findViewById(R.id.profilId);
+        viewOrderCard = (CardView) findViewById(R.id.viewId);
 
         cartCard.setOnClickListener(this);
         profileCard.setOnClickListener(this);
+        viewOrderCard.setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +35,10 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.profilId :
                 i = new Intent(this, Profile.class);
+                startActivity(i);
+                break;
+            case R.id.viewId :
+                i = new Intent(this, ViewOrder.class);
                 startActivity(i);
                 break;
 

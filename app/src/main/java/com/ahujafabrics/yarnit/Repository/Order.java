@@ -12,13 +12,16 @@ public class Order {
 
     public enum OrderStatus { Submitted , Delivered};
 
-    public Order(String orderID, String userID, long creationDate, List<OrderItem> orderLineItems, OrderStatus orderStatus) {
+    public Order(String orderID, String userID, long creationDate,
+                 List<OrderItem> orderLineItems, OrderStatus orderStatus) {
         this.setOrderID(orderID);
         this.setUserID(userID);
         this.setCreationDate(creationDate);
         this.setOrderLineItems(orderLineItems);
         this.orderStatus = orderStatus;
     }
+
+    public Order(){}
 
     public String getOrderID() {
         return orderID;
