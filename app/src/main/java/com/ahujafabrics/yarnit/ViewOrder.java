@@ -79,7 +79,7 @@ public class ViewOrder extends AppCompatActivity {
                     ds.child("orderStatus").getValue(Order.OrderStatus.class)); */
 
             order.setOrderID(ds.child("orderID").getValue(String.class));
-            order.setCreationDate(ds.child("creationDate").getValue(long.class));
+            order.setCreationDate(ds.child("creationDate").getValue(String.class));
             order.setUserID(ds.child("userID").getValue(String.class));
             order.setOrderStatus(ds.child("orderStatus").getValue(Order.OrderStatus.class));
 

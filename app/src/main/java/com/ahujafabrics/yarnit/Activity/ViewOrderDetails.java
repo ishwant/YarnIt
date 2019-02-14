@@ -38,7 +38,7 @@ public class ViewOrderDetails extends AppCompatActivity {
         orderDate = findViewById(R.id.orderDate);
 
         userId.setText(order.getUserID());
-        orderDate.setText(String.valueOf(order.getCreationDate()));
+        orderDate.setText(order.getCreationDate());
 
         mRecyclerView = (RecyclerView) findViewById(R.id.orderItems);
 
