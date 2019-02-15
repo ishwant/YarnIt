@@ -17,6 +17,7 @@ import com.ahujafabrics.yarnit.Repository.CartItem;
 import com.ahujafabrics.yarnit.Repository.CartLineItem;
 import com.ahujafabrics.yarnit.Repository.Order;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
+import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,11 +34,16 @@ public class CartSummary extends AppCompatActivity {
 
     private CartItem cartItem;
     private OrderController orderController;
+
+    SQLiteHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView( R.layout.activity_cartsummary );
+
+        dbHelper = new SQLiteHelper(this);
+
         mContext = getApplicationContext();
         orderController = new OrderController();
 
@@ -72,7 +78,8 @@ public class CartSummary extends AppCompatActivity {
         Intent i;
         switch (item.getItemId()){
             case R.id.placeOrder_menu:
-                orderController.submitOrder(cartItem);
+                String user  = dbHelper.getUserName();
+                orderController.submitOrder(cartItem, user);
                 Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
                 i = new Intent(this, Dashboard.class);
                 startActivity(i);
