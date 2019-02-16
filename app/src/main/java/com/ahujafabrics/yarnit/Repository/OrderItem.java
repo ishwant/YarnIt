@@ -5,13 +5,11 @@ import android.os.Parcelable;
 
 public class OrderItem implements Parcelable {
     private Integer orderLineItemID;
-    private String productType;
     private String shadeId;
     private Integer quantity;
 
-    public OrderItem(Integer orderLineItemID, String productType, String shadeId, Integer quantity) {
+    public OrderItem(Integer orderLineItemID, String shadeId, Integer quantity) {
         this.setOrderLineItemID(orderLineItemID);
-        this.setProductType(productType);
         this.setShadeId(shadeId);
         this.setQuantity(quantity);
     }
@@ -20,7 +18,6 @@ public class OrderItem implements Parcelable {
 
     protected OrderItem(Parcel in) {
         orderLineItemID = in.readByte() == 0x00 ? null : in.readInt();
-        productType = in.readString();
         shadeId = in.readString();
         quantity = in.readByte() == 0x00 ? null : in.readInt();
     }
@@ -43,14 +40,6 @@ public class OrderItem implements Parcelable {
 
     public void setOrderLineItemID(Integer orderLineItemID) {
         this.orderLineItemID = orderLineItemID;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
     }
 
     public String getShadeId() {
@@ -82,7 +71,7 @@ public class OrderItem implements Parcelable {
             dest.writeByte((byte) (0x01));
             dest.writeInt(orderLineItemID);
         }
-        dest.writeString(productType);
+
         dest.writeString(shadeId);
         if (quantity == null) {
             dest.writeByte((byte) (0x00));

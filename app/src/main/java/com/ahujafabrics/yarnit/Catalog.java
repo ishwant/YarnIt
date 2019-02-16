@@ -86,7 +86,7 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
     private List<ShadeCard> setShades(){
         List<ShadeCard> shadesList = new ArrayList<>();
 
-        for(int i=1; i<=400; i++){
+        for(int i=1; i<=424; i++){
             String temp = "S/" + Integer.toString(i);
             shadesList.add(new ShadeCard(temp));
         }
