@@ -65,8 +65,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String count = "SELECT count(*) FROM " + UserTable;
         Cursor mcursor = db.rawQuery(count, null);
+
         mcursor.moveToFirst();
         int icount = mcursor.getInt(0);
+        mcursor.close();
         if(icount>0)
             return true;
 
@@ -78,5 +80,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + UserTable;
         Cursor data = db.rawQuery(query, null);
         return data;
+    }
+
+    public String getUserName(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT UserName FROM " + UserTable;
+        Cursor userName = db.rawQuery(query, null);
+
+        if(userName.moveToFirst())
+            return userName.getString(userName.getColumnIndex("UserName"));
+
+        return "" ;
     }
 }

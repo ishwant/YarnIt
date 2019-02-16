@@ -9,6 +9,7 @@
     <string name="placeOrderTitle">Place Order</string>
     <string name="qty">Qty:</string>
     <string name="title_activity_profile2">Sign in</string>
+
     <!-- Strings related to login -->
     <string name="promptName">Name</string>
     <string name="promptAddress1">Address Line 1</string>
@@ -23,4 +24,18 @@
         <item>WholeSale</item>
         <item>Admin</item>
     </string-array>
+
+    <string-array name="product">
+        <item>C.V/Mix</item>
+        <item>Threads</item>
+        <item>Shantoon</item>
+        <item>Crape</item>
+        <item>Camric</item>
+        <item>C.V/SP</item>
+    </string-array>
+
+    <!-- Alert Strings -->
+    <string name="NoProfileAlert">Please create your profile!</string>
+    <string name="EmptyCartAlert">Please add something to your cart!</string>
+    <string name="Ok">OK</string>
 </resources>

@@ -31,7 +31,8 @@
             android:label="Your Profile"></activity>
         <activity
             android:name=".CartSummary"
-            android:label="Cart Details"></activity>
+            android:label="Cart Details">
+        </activity>
         <activity
             android:name=".Catalog"
             android:label="Place Order"></activity>

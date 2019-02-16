@@ -4,6 +4,7 @@ import com.ahujafabrics.yarnit.Repository.CartItem;
 import com.ahujafabrics.yarnit.Repository.CartLineItem;
 import com.ahujafabrics.yarnit.Repository.Order;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
+import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,10 +20,9 @@ public class OrderController {
     public OrderController(){
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         ordersDb = mFirebaseDatabase.getReference().child("OrdersNew");
-
     }
 
-    public void submitOrder(CartItem cartItem){
+    public void submitOrder(CartItem cartItem, String user){
         List<OrderItem> orderItemList = new ArrayList<>();
         int itemNumber = 0;
         for (CartLineItem cli: cartItem.getCartLineItems()) {
@@ -36,12 +36,12 @@ public class OrderController {
 
         Date date = new Date();
         Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         String creationDate = dt.format(newDate);
 
         Order order = new Order(
                 "1",
-                "ishwant",
+                user,
                 creationDate,
                 orderItemList,
                 Order.OrderStatus.Submitted
