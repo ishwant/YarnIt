@@ -1,10 +1,14 @@
 package com.ahujafabrics.yarnit;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+
+import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
     private CardView cartCard, profileCard, viewOrderCard;
@@ -29,9 +33,26 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         switch (v.getId()){
             case R.id.orderId:
-                //i = new Intent(this, PlaceOrder.class);
-                i = new Intent(this, Catalog.class);
-                startActivity(i);
+                if(new SQLiteHelper(this).getUserName().equals("")){
+
+                    AlertDialog.Builder noProfileAlert = new AlertDialog.Builder(this);
+                    noProfileAlert.setMessage(R.string.NoProfileAlert)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.Ok,new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }) ;
+                    AlertDialog alert = noProfileAlert.create();
+                    alert.setTitle("Alert!");
+                    alert.show();
+                }
+                else{
+                    i = new Intent(this, Catalog.class);
+                    startActivity(i);
+                }
+
                 break;
             case R.id.profilId :
                 i = new Intent(this, Profile.class);

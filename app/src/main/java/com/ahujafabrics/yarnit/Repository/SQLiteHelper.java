@@ -62,21 +62,21 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public boolean checkIfProfileExists(){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String count = "SELECT count(*) FROM " + UserTable;
         Cursor mcursor = db.rawQuery(count, null);
 
-        if(mcursor.moveToFirst()){
-            mcursor.close();
-            return true;
-        }
-
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
         mcursor.close();
+        if(icount>0)
+            return true;
+
         return false;
     }
 
     public Cursor getProfile(){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + UserTable;
         Cursor data = db.rawQuery(query, null);
         return data;

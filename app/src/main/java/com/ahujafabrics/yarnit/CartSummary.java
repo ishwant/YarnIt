@@ -1,8 +1,10 @@
 package com.ahujafabrics.yarnit;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,16 +16,7 @@ import android.widget.Toast;
 import com.ahujafabrics.yarnit.Activity.CartItemView;
 import com.ahujafabrics.yarnit.Controllers.OrderController;
 import com.ahujafabrics.yarnit.Repository.CartItem;
-import com.ahujafabrics.yarnit.Repository.CartLineItem;
-import com.ahujafabrics.yarnit.Repository.Order;
-import com.ahujafabrics.yarnit.Repository.OrderItem;
 import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class CartSummary extends AppCompatActivity {
 
@@ -79,11 +72,28 @@ public class CartSummary extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.placeOrder_menu:
                 String user  = dbHelper.getUserName();
-                orderController.submitOrder(cartItem, user);
-                Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
-                i = new Intent(this, Dashboard.class);
-                startActivity(i);
-                return true;
+                if(cartItem.getCartLineItems().size()==0){
+
+                    AlertDialog.Builder emptyCartAlert = new AlertDialog.Builder(this);
+                    emptyCartAlert.setMessage(R.string.EmptyCartAlert)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.Ok,new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            }) ;
+                    AlertDialog alert = emptyCartAlert.create();
+                    alert.setTitle("Alert!");
+                    alert.show();
+                }
+                else{
+                    orderController.submitOrder(cartItem, user);
+                    Toast.makeText(this, "Order Submitted", Toast.LENGTH_LONG).show();
+                    i = new Intent(this, Dashboard.class);
+                    startActivity(i);
+                    return true;
+                }
 
             default:
                 return super.onOptionsItemSelected(item);

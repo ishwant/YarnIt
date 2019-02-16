@@ -23,4 +23,9 @@
         <item>WholeSale</item>
         <item>Admin</item>
     </string-array>
+
+    <!-- Alert Strings -->
+    <string name="NoProfileAlert">Please create your profile!</string>
+    <string name="EmptyCartAlert">Please add something to your cart!</string>
+    <string name="Ok">OK</string>
 </resources>
