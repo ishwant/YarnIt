@@ -36,7 +36,7 @@ public class OrderController {
 
         Date date = new Date();
         Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         String creationDate = dt.format(newDate);
 
         Order order = new Order(

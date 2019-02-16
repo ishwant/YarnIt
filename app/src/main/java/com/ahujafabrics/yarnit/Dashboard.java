@@ -52,7 +52,6 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     i = new Intent(this, Catalog.class);
                     startActivity(i);
                 }
-
                 break;
             case R.id.profilId :
                 i = new Intent(this, Profile.class);
