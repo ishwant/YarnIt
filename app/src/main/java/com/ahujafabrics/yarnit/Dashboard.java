@@ -65,4 +65,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             default:break;
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
 }
