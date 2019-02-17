@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.TextView;
 
+import com.ahujafabrics.yarnit.Adapter.ViewOrderItemDetails;
 import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.Order;
 

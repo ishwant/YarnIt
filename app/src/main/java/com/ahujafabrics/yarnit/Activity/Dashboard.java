@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {

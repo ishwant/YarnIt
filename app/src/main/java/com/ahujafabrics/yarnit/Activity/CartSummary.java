@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,8 +13,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.ahujafabrics.yarnit.Activity.CartItemView;
+import com.ahujafabrics.yarnit.Adapter.CartItemView;
 import com.ahujafabrics.yarnit.Controllers.OrderController;
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.CartItem;
 import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 

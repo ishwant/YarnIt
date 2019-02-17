@@ -1,15 +1,14 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.ahujafabrics.yarnit.Activity.ViewOrderItem;
+import com.ahujafabrics.yarnit.Adapter.ViewOrderItem;
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.Order;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
 import com.google.firebase.database.DataSnapshot;

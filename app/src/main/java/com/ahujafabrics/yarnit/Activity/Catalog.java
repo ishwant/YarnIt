@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.support.v7.widget.SearchView;
 
-import com.ahujafabrics.yarnit.Activity.CatalogItemView;
+import com.ahujafabrics.yarnit.Adapter.CatalogItemView;
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.CartItem;
 import com.ahujafabrics.yarnit.Repository.CartLineItem;
 import com.ahujafabrics.yarnit.Repository.OnCatalogItemClick;

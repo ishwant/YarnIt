@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Dashboard"
+            android:name=".Activity.Dashboard"
             android:label="Yarn It">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,20 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PlaceOrder"
-            android:label="Place Order"></activity>
-        <activity
-            android:name=".Profile"
+            android:name=".Activity.Profile"
             android:label="Your Profile"></activity>
         <activity
-            android:name=".CartSummary"
+            android:name=".Activity.CartSummary"
             android:label="Cart Details">
         </activity>
         <activity
-            android:name=".Catalog"
+            android:name=".Activity.Catalog"
             android:label="Place Order"></activity>
         <activity
-            android:name=".ViewOrder"
+            android:name=".Activity.ViewOrder"
             android:label="View Order"></activity>
         <activity
             android:name=".Activity.ViewOrderDetails"

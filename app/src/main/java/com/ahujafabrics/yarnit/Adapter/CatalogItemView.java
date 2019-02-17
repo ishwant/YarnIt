@@ -1,7 +1,6 @@
-package com.ahujafabrics.yarnit.Activity;
+package com.ahujafabrics.yarnit.Adapter;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -76,8 +75,6 @@ public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHo
         holder.shadeLabel.setText(shadeGridValues.get(position).getShade());
         holder.qty.setText(shadeGridValues.get(position).getQty());
 
-        if(!holder.qty.getText().toString().equals(""))
-            holder.shadeCard.setCardBackgroundColor(ContextCompat.getColor(context, R.color.cardBackground));
     }
 
     @Override

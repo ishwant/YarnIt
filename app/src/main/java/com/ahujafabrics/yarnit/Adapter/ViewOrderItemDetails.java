@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit.Activity;
+package com.ahujafabrics.yarnit.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,11 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ahujafabrics.yarnit.R;
-import com.ahujafabrics.yarnit.Repository.CartLineItem;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
-import com.ahujafabrics.yarnit.ViewOrder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewOrderItemDetails extends RecyclerView.Adapter<ViewOrderItemDetails.ViewHolder> {
