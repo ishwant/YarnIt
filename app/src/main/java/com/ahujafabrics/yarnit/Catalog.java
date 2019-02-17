@@ -9,7 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.inputmethod.EditorInfo;
+import android.support.v7.widget.SearchView;
 
 import com.ahujafabrics.yarnit.Activity.CatalogItemView;
 import com.ahujafabrics.yarnit.Repository.CartItem;
@@ -18,7 +19,6 @@ import com.ahujafabrics.yarnit.Repository.OnCatalogItemClick;
 import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
@@ -70,14 +70,28 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
         switch (item.getItemId()){
             case R.id.checkout_menu:
                 i = new Intent(this, CartSummary.class);
-                //CartLineItem cli = new CartLineItem("S/1", 30);
-                //ArrayList<CartLineItem> cliList = new ArrayList<>();
-                //cliList.add(cli);
                 i.putExtra("SelectedShades", new CartItem("Thread",
                         convertShadeCardstoCartItems(shadeGridValues)));
                 startActivity(i);
                 return true;
 
+            case R.id.action_search:
+                SearchView searchView = (SearchView) item.getActionView();
+
+                searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        catalogItemAdapter.getFilter().filter(newText);
+                        return false;
+                    }
+                });
             default:
                 return super.onOptionsItemSelected(item);
         }

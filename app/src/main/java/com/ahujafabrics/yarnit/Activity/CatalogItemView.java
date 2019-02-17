@@ -1,38 +1,41 @@
 package com.ahujafabrics.yarnit.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.IconCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.OnCatalogItemClick;
 import com.ahujafabrics.yarnit.Repository.ShadeCard;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHolder> {
+public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHolder> implements Filterable {
 
     private static final String TAG = "CatalogItemView";
 
     private Context context;
     private final List<ShadeCard> shadeGridValues;
+    private List<ShadeCard> shadeGridValuesFull;
     private OnCatalogItemClick ctlgItemClick;
 
     public CatalogItemView(Context context, List shadeGridValues, OnCatalogItemClick listener){
         this.shadeGridValues = shadeGridValues;
         this.context = context;
         this.ctlgItemClick = listener;
+
+        shadeGridValuesFull = new ArrayList<>(shadeGridValues);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -113,4 +116,42 @@ public class CatalogItemView extends RecyclerView.Adapter<CatalogItemView.ViewHo
 
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return shadeFilter;
+    }
+
+    private Filter shadeFilter = new Filter(){
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<ShadeCard> filteredShades = new ArrayList<>();
+
+            if(constraint == null || constraint.length() ==0){
+                filteredShades = shadeGridValuesFull;
+            }
+            else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for(ShadeCard sc : shadeGridValuesFull){
+                    if(sc.getShade().toLowerCase().contains(filterPattern)){
+                        filteredShades.add(sc);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredShades;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            shadeGridValues.clear();
+            shadeGridValues.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
