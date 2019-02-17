@@ -7,16 +7,19 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/shadCard"
+        card_view:cardBackgroundColor="#fff"
         style="@style/shadeCardLayout">
 
         <LinearLayout style="@style/cardLinearLayout">
             <TextView
                 style="@style/ShadeCardTitle"
-                android:id="@+id/shade" />
+                android:id="@+id/shade"
+                android:textColor="@color/darkblue"/>
             <View style="@style/shadeCardDividingLine" />
             <LinearLayout style="@style/qtyLayout">
                 <TextView style="@style/ShadeCardQtyText"
-                    android:id="@+id/qtyLabel"/>
+                    android:id="@+id/qtyLabel"
+                    android:textColor="@color/darkblue"/>
                 <EditText
                     android:id="@+id/qty"
                     style="@style/ShadeCardQtyInput"

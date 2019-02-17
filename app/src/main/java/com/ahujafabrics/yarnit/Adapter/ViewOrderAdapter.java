@@ -14,12 +14,12 @@ import com.ahujafabrics.yarnit.Repository.Order;
 
 import java.util.ArrayList;
 
-public class ViewOrderItem extends RecyclerView.Adapter<ViewOrderItem.ViewHolder> {
+public class ViewOrderAdapter extends RecyclerView.Adapter<ViewOrderAdapter.ViewHolder> {
 
     private Context context;
     private final ArrayList<Order> ordersList;
 
-    public ViewOrderItem(Context context, ArrayList<Order> ordersList){
+    public ViewOrderAdapter(Context context, ArrayList<Order> ordersList){
         this.ordersList = ordersList;
         this.context = context;
     }
@@ -36,19 +36,19 @@ public class ViewOrderItem extends RecyclerView.Adapter<ViewOrderItem.ViewHolder
     }
 
     @Override
-    public ViewOrderItem.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewOrderAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         // Create a new View
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View v = inflater.inflate( R.layout.vieworderlist , null);
-        ViewOrderItem.ViewHolder vh = new ViewOrderItem.ViewHolder(v);
+        ViewOrderAdapter.ViewHolder vh = new ViewOrderAdapter.ViewHolder(v);
 
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewOrderItem.ViewHolder holder, final int position){
+    public void onBindViewHolder(ViewOrderAdapter.ViewHolder holder, final int position){
 
         holder.orderedBy.setText(ordersList.get(position).getUserID());
         holder.createdDate.setText(ordersList.get(position).getCreationDate());
@@ -58,6 +58,7 @@ public class ViewOrderItem extends RecyclerView.Adapter<ViewOrderItem.ViewHolder
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ViewOrderDetails.class);
                 intent.putExtra("SelectedOrder", ordersList.get(position));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(intent);
             }
         });

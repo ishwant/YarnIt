@@ -12,12 +12,12 @@ import com.ahujafabrics.yarnit.Repository.OrderItem;
 
 import java.util.List;
 
-public class ViewOrderItemDetails extends RecyclerView.Adapter<ViewOrderItemDetails.ViewHolder> {
+public class ViewOrderDetailsAdapter extends RecyclerView.Adapter<ViewOrderDetailsAdapter.ViewHolder> {
 
     private Context context;
     private final List<OrderItem> orderItemsList;
 
-    public ViewOrderItemDetails(Context context, List<OrderItem> orderItemsList){
+    public ViewOrderDetailsAdapter(Context context, List<OrderItem> orderItemsList){
         this.orderItemsList = orderItemsList;
         this.context = context;
     }
@@ -34,19 +34,19 @@ public class ViewOrderItemDetails extends RecyclerView.Adapter<ViewOrderItemDeta
     }
 
     @Override
-    public ViewOrderItemDetails.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewOrderDetailsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         // Create a new View
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View v = inflater.inflate( R.layout.vieworderdetails , null);
-        ViewOrderItemDetails.ViewHolder vh = new ViewOrderItemDetails.ViewHolder(v);
+        ViewOrderDetailsAdapter.ViewHolder vh = new ViewOrderDetailsAdapter.ViewHolder(v);
 
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewOrderItemDetails.ViewHolder holder, int position){
+    public void onBindViewHolder(ViewOrderDetailsAdapter.ViewHolder holder, int position){
 
         holder.shadeInCart.setText(orderItemsList.get(position).getShadeId());
         holder.qtyInCart.setText(String.valueOf(orderItemsList.get(position).getQuantity()));

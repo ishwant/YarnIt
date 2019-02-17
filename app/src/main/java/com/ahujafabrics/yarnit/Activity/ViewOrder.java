@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.ahujafabrics.yarnit.Adapter.ViewOrderItem;
+import com.ahujafabrics.yarnit.Adapter.ViewOrderAdapter;
 import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.Order;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
@@ -28,7 +28,7 @@ public class ViewOrder extends AppCompatActivity {
     private Context mContext;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ViewOrderItem viewOrderItemAdapter;
+    private ViewOrderAdapter viewOrderAdapterAdapter;
 
     private static ArrayList<Order> ordersList;
     private Order order;
@@ -94,10 +94,10 @@ public class ViewOrder extends AppCompatActivity {
             ordersList.add(order);
         }
         // Initialize a new instance of RecyclerView Adapter instance
-        viewOrderItemAdapter = new ViewOrderItem(mContext, ordersList);
+        viewOrderAdapterAdapter = new ViewOrderAdapter(mContext, ordersList);
 
         // Set the adapter for RecyclerView
-        mRecyclerView.setAdapter(viewOrderItemAdapter);
+        mRecyclerView.setAdapter(viewOrderAdapterAdapter);
     }
 
 }

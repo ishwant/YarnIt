@@ -13,12 +13,14 @@
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/shadeInCart"/>
+            android:id="@+id/shadeInCart"
+            android:textColor="@color/darkblue"/>
         <TextView
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/qtyInCart"/>
+            android:id="@+id/qtyInCart"
+            android:textColor="@color/darkblue"/>
     </TableRow>
 </TableLayout>
 

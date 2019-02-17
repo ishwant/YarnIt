@@ -8,7 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import com.ahujafabrics.yarnit.Adapter.ViewOrderItemDetails;
+import com.ahujafabrics.yarnit.Adapter.ViewOrderDetailsAdapter;
 import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.Order;
 
@@ -20,7 +20,7 @@ public class ViewOrderDetails extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private Context mContext;
 
-    private ViewOrderItemDetails viewOrderItemDetailsAdapter;
+    private ViewOrderDetailsAdapter viewOrderDetailsAdapterAdapter;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -45,9 +45,9 @@ public class ViewOrderDetails extends AppCompatActivity {
         mLayoutManager = new GridLayoutManager(mContext,1);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        viewOrderItemDetailsAdapter = new ViewOrderItemDetails(mContext, order.getOrderLineItems());
+        viewOrderDetailsAdapterAdapter = new ViewOrderDetailsAdapter(mContext, order.getOrderLineItems());
 
-        mRecyclerView.setAdapter(viewOrderItemDetailsAdapter);
+        mRecyclerView.setAdapter(viewOrderDetailsAdapterAdapter);
 
     }
 }
