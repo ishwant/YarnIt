@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit.Activity;
+package com.ahujafabrics.yarnit.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

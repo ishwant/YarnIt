@@ -10,6 +10,7 @@ public class Order implements Parcelable {
     private String orderID;
     private String userID;
     private String creationDate;
+    private String productType;
     private List<OrderItem> orderLineItems;
     private OrderStatus orderStatus;
 
@@ -17,12 +18,13 @@ public class Order implements Parcelable {
     public enum OrderStatus { Submitted , Delivered};
 
     public Order(String orderID, String userID, String creationDate,
-                 List<OrderItem> orderLineItems, OrderStatus orderStatus) {
+                 List<OrderItem> orderLineItems, OrderStatus orderStatus, String productType) {
         this.setOrderID(orderID);
         this.setUserID(userID);
         this.setCreationDate(creationDate);
         this.setOrderLineItems(orderLineItems);
         this.orderStatus = orderStatus;
+        this.productType = productType;
     }
 
     public Order(){}
@@ -38,6 +40,7 @@ public class Order implements Parcelable {
             orderLineItems = null;
         }
         orderStatus = (OrderStatus) in.readValue(OrderStatus.class.getClassLoader());
+        productType = in.readString();
     }
 
     @Override
@@ -52,6 +55,7 @@ public class Order implements Parcelable {
             dest.writeList(orderLineItems);
         }
         dest.writeValue(orderStatus);
+        dest.writeString(productType);
     }
 
     @Override
@@ -110,4 +114,13 @@ public class Order implements Parcelable {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
 }

@@ -25,13 +25,14 @@
         <item>Admin</item>
     </string-array>
 
-    <string-array name="product">
+    <string-array name="productShades">
         <item>C.V/Mix</item>
         <item>Threads</item>
         <item>Shantoon</item>
         <item>Crape</item>
         <item>Camric</item>
         <item>C.V/SP</item>
+        <item>Zip</item>
     </string-array>
 
     <!-- Alert Strings -->

@@ -1,4 +1,4 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 import com.ahujafabrics.yarnit.Repository.UserProfile;
 

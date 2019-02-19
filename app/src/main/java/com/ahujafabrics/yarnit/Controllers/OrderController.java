@@ -28,7 +28,6 @@ public class OrderController {
         for (CartLineItem cli: cartItem.getCartLineItems()) {
             orderItemList.add(new OrderItem(
                     itemNumber++,
-                    cartItem.getProductType(),
                     cli.getShade(),
                     Integer.valueOf(cli.getQty())
             ));
@@ -44,7 +43,8 @@ public class OrderController {
                 user,
                 creationDate,
                 orderItemList,
-                Order.OrderStatus.Submitted
+                Order.OrderStatus.Submitted,
+                "Threads"
         );
         ordersDb.push().setValue(order);
     }

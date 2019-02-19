@@ -8,7 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
-import com.ahujafabrics.yarnit.Dashboard;
+import com.ahujafabrics.yarnit.Activity.Dashboard;
 import com.ahujafabrics.yarnit.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;

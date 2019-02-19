@@ -14,12 +14,14 @@ android:stretchColumns="1">
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/orderedBy"/>
+        android:id="@+id/orderedBy"
+        android:textColor="@color/darkblue"/>
     <TextView
         android:textSize="20sp"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/createdDate"/>
+        android:id="@+id/createdDate"
+        android:textColor="@color/darkblue"/>
 </TableRow>
 </TableLayout>

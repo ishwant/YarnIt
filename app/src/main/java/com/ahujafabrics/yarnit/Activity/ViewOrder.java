@@ -1,15 +1,14 @@
-package com.ahujafabrics.yarnit;
+package com.ahujafabrics.yarnit.Activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.ahujafabrics.yarnit.Activity.ViewOrderItem;
+import com.ahujafabrics.yarnit.Adapter.ViewOrderAdapter;
+import com.ahujafabrics.yarnit.R;
 import com.ahujafabrics.yarnit.Repository.Order;
 import com.ahujafabrics.yarnit.Repository.OrderItem;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +19,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ViewOrder extends AppCompatActivity {
@@ -29,7 +29,7 @@ public class ViewOrder extends AppCompatActivity {
     private Context mContext;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ViewOrderItem viewOrderItemAdapter;
+    private ViewOrderAdapter viewOrderAdapterAdapter;
 
     private static ArrayList<Order> ordersList;
     private Order order;
@@ -53,7 +53,7 @@ public class ViewOrder extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         ordersDb = mFirebaseDatabase.getReference().child("OrdersNew");
 
-        ordersDb.addValueEventListener(new ValueEventListener() {
+        ordersDb.orderByChild("creationDate").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getOrdersList(dataSnapshot);
@@ -72,11 +72,6 @@ public class ViewOrder extends AppCompatActivity {
 
         for(DataSnapshot ds : dataSnapshot.getChildren()){
             Order order = new Order();
-                    /*ds.child("orderID").getValue(String.class),
-                    ds.child("userID").getValue(String.class),
-                    ds.child("creationDate").getValue(long.class),
-                    ds.child("orderLineItems").getValue(List.class),
-                    ds.child("orderStatus").getValue(Order.OrderStatus.class)); */
 
             order.setOrderID(ds.child("orderID").getValue(String.class));
             order.setCreationDate(ds.child("creationDate").getValue(String.class));
@@ -86,15 +81,9 @@ public class ViewOrder extends AppCompatActivity {
             List<OrderItem> orderItemList = new ArrayList<>();
 
             for(DataSnapshot os : ds.child("orderLineItems").getChildren()){
-                /*OrderItem oi = new OrderItem(
-                        ds.child("orderLineItemID").getValue(Integer.class),
-                        ds.child("productType").getValue(String.class),
-                        ds.child("shadeId").getValue(String.class),
-                        ds.child("quantity").getValue(Integer.class)
-                ); */
+
                 OrderItem oi = new OrderItem();
                 oi.setOrderLineItemID(os.child("orderLineItemID").getValue(Integer.class));
-                oi.setProductType(os.child("productType").getValue(String.class));
                 oi.setQuantity(os.child("quantity").getValue(Integer.class));
                 oi.setShadeId(os.child("shadeId").getValue(String.class));
 
@@ -103,21 +92,15 @@ public class ViewOrder extends AppCompatActivity {
             GenericTypeIndicator<List<OrderItem>> genericOrderItemList = new GenericTypeIndicator<List<OrderItem>>() {};
 
             order.setOrderLineItems(ds.child("orderLineItems").getValue(genericOrderItemList));
-                    //ds.getValue(Order.class);
             ordersList.add(order);
         }
+
+        Collections.reverse(ordersList);
         // Initialize a new instance of RecyclerView Adapter instance
-        viewOrderItemAdapter = new ViewOrderItem(mContext, ordersList);
+        viewOrderAdapterAdapter = new ViewOrderAdapter(mContext, ordersList);
 
         // Set the adapter for RecyclerView
-        mRecyclerView.setAdapter(viewOrderItemAdapter);
-    /*    OrderItem oi = new OrderItem(1, "Shantoon", "S/1", 4);
-        List<OrderItem> oiList = new ArrayList<>();
-        oiList.add(oi);
-        Order temp = new Order("1", "Ishwant", 2142019,
-                oiList, Order.OrderStatus.Submitted);
-        ordersList.add(temp); */
-
+        mRecyclerView.setAdapter(viewOrderAdapterAdapter);
     }
 
 }
