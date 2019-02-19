@@ -19,6 +19,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ViewOrder extends AppCompatActivity {
@@ -52,7 +53,7 @@ public class ViewOrder extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         ordersDb = mFirebaseDatabase.getReference().child("OrdersNew");
 
-        ordersDb.addValueEventListener(new ValueEventListener() {
+        ordersDb.orderByChild("creationDate").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getOrdersList(dataSnapshot);
@@ -93,6 +94,8 @@ public class ViewOrder extends AppCompatActivity {
             order.setOrderLineItems(ds.child("orderLineItems").getValue(genericOrderItemList));
             ordersList.add(order);
         }
+
+        Collections.reverse(ordersList);
         // Initialize a new instance of RecyclerView Adapter instance
         viewOrderAdapterAdapter = new ViewOrderAdapter(mContext, ordersList);
 
