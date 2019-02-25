@@ -35,8 +35,19 @@
         <item>Zip</item>
     </string-array>
 
+    <string-array name="Qty">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <!-- Alert Strings -->
     <string name="NoProfileAlert">Please create your profile!</string>
     <string name="EmptyCartAlert">Please add something to your cart!</string>
     <string name="Ok">OK</string>
+
+
+
 </resources>
