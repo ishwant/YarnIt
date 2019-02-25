@@ -50,7 +50,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     alert.show();
                 }
                 else{
-                    i = new Intent(this, Catalog.class);
+                    //i = new Intent(this, Catalog.class);
+                    i = new Intent(this, ShadeCatalog.class);
                     startActivity(i);
                 }
                 break;

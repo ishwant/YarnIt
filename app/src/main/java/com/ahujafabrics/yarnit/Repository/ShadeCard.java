@@ -8,6 +8,11 @@ public class ShadeCard {
         this.shade = shade;
         this.qty="";
     }
+
+    public ShadeCard(String shade, String qty){
+        this.shade = shade;
+        this.qty=qty;
+    }
     public String getShade(){ return shade; }
     public String getQty(){ return qty; }
 
