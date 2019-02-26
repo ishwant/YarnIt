@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="10dp"
-    tools:context=".Activity.Profile"
-    android:theme="@style/AppTheme">
+    tools:context=".Activity.Profile">
 
  <!--   <ImageView
         android:id="@+id/cartView"
@@ -23,21 +22,17 @@
         android:textColor="@color/white"
         app:chipBackgroundColor="@color/colorAccent"
 
-    <android.support.design.chip.ChipGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/shadeChips"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </android.support.design.chip.ChipGroup> -->
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shadeChips"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"/> -->
+
+    <android.support.design.chip.ChipGroup
+        android:id="@+id/selectedShadeChipsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </android.support.design.chip.ChipGroup>
 
     <LinearLayout
         android:id="@+id/shadeAndQty"
