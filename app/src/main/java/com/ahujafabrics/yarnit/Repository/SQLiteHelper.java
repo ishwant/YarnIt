@@ -49,6 +49,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("Email", item.getEmail());
         contentValues.put("Role", item.getRole());
 
+        db.execSQL("delete from "+ UserTable);
         Log.d(TAG, "addData: Adding " + item + " to " + UserTable);
 
         long result = db.insert(UserTable, null, contentValues);

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -17,10 +20,9 @@ import com.ahujafabrics.yarnit.Repository.SQLiteHelper;
 import com.ahujafabrics.yarnit.Repository.UserProfile;
 
 
-public class Profile extends AppCompatActivity implements View.OnClickListener{
+public class Profile extends AppCompatActivity{
 
     SQLiteHelper dbHelper;
-    FloatingActionButton updateProfilebtn;
 
     EditText fname;
     EditText address1;
@@ -30,6 +32,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
     EditText email;
     Spinner role;
 
+    Boolean isProfile;
+
+    MenuInflater inflater;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +43,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
         dbHelper = new SQLiteHelper(this);
 
-        updateProfilebtn = findViewById(R.id.updateProfile);
+        //updateProfilebtn = findViewById(R.id.updateProfile);
         fname = findViewById(R.id.nameId);
         address1 = findViewById(R.id.address1);
         address2 = findViewById(R.id.address2);
@@ -46,11 +52,13 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
         email = findViewById(R.id.email);
         role = findViewById(R.id.roleSpinner);
 
+        fname.setInputType(0);
         //check if the profile exists
         if(dbHelper.checkIfProfileExists()) {
 
+            isProfile = true;
             System.out.print("entered getProfile");
-            updateProfilebtn.setImageResource(R.drawable.ic_edit_black_24dp);
+            //updateProfilebtn.setImageResource(R.drawable.ic_edit_black_24dp);
 
             Cursor profileData = dbHelper.getProfile();
             profileData.moveToFirst();
@@ -68,47 +76,47 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
             contact.setEnabled(false);
             email.setEnabled(false);
         }
-        else{
-            updateProfilebtn.setImageResource(R.drawable.ic_check_black_24dp);
-        }
-        updateProfilebtn.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v){
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        inflater = getMenuInflater();
+        inflater.inflate(R.menu.savemenu, menu);
+        if(isProfile){
+            menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_edit_black_24dp));
+        }
+        else
+            menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_save_black_24dp));
+        return true;
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
         Intent i;
 
-        switch (v.getId()){
-            case R.id.updateProfile:
-                //check the button from edit to save
+        switch (item.getItemId()){
+            case R.id.save_menu:
 
-                if(dbHelper.checkIfProfileExists()){
-
-                    updateProfilebtn.setImageResource(R.drawable.ic_check_black_24dp);
-                    updateProfilebtn.setBackgroundTintList(ColorStateList.valueOf(
-                            ContextCompat.getColor(getApplicationContext(), R.color.deeppurple)));
-
+                if(isProfile){
                     fname.setEnabled(true);
                     address1.setEnabled(true);
                     address2.setEnabled(true);
                     city.setEnabled(true);
                     contact.setEnabled(true);
                     email.setEnabled(true);
+                    item.setIcon(R.drawable.ic_save_black_24dp);
+                    isProfile = false;
                 }
                 else{
-
                     if(fname.getText().toString().equals("") ||
-                        address1.getText().toString().equals("")||
-                            address2.getText().toString().equals("")||
-                            city.getText().toString().equals("")||
-                            contact.getText().toString().equals("")||
-                            email.getText().toString().equals(""))
+                            address1.getText().toString().equals("")||
+                            contact.getText().toString().equals(""))
                     {
                         Toast.makeText(this, "Please enter all the required details",
                                 Toast.LENGTH_LONG).show();
                     }
                     else{
-
                         UserProfile user = new UserProfile(
                                 fname.getText().toString(),
                                 address1.getText().toString(),
@@ -119,12 +127,15 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
                                 "Boutique"
                         );
                         dbHelper.addData(user);
+                        item.setIcon(R.drawable.ic_edit_black_24dp);
+                        i = new Intent(this, Dashboard.class);
+                        startActivity(i);
                         Toast.makeText(this, "Profile Submitted", Toast.LENGTH_LONG).show();
                     }
                 }
-                break;
-
-            default:break;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
