@@ -46,6 +46,7 @@
     <!-- Alert Strings -->
     <string name="NoProfileAlert">Please create your profile!</string>
     <string name="EmptyCartAlert">Please add something to your cart!</string>
+    <string name="EmptySearchShade">Please select shade to add!</string>
     <string name="Ok">OK</string>
 
 

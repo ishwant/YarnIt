@@ -76,7 +76,7 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
                 startActivity(i);
                 return true;
 
-            case R.id.action_search:
+        /*    case R.id.action_search:
                 SearchView searchView = (SearchView) item.getActionView();
 
                 searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -92,7 +92,7 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
                         catalogItemAdapter.getFilter().filter(newText);
                         return false;
                     }
-                });
+                }); */
             default:
                 return super.onOptionsItemSelected(item);
         }
