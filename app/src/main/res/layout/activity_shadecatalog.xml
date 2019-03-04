@@ -31,6 +31,9 @@
         android:id="@+id/selectedShadeChipsGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         app:chipSpacingHorizontal="5dp">
 
     </android.support.design.chip.ChipGroup>
@@ -40,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp">
+        android:layout_centerVertical="true">
 
         <AutoCompleteTextView
             android:id="@+id/searchShade"
