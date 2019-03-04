@@ -52,7 +52,6 @@ public class Profile extends AppCompatActivity{
         email = findViewById(R.id.email);
         role = findViewById(R.id.roleSpinner);
 
-        fname.setInputType(0);
         //check if the profile exists
         if(dbHelper.checkIfProfileExists()) {
 
