@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
-import android.support.v7.widget.SearchView;
 
 import com.ahujafabrics.yarnit.Adapter.CatalogItemView;
 import com.ahujafabrics.yarnit.R;
@@ -76,7 +76,7 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
                 startActivity(i);
                 return true;
 
-            case R.id.action_search:
+        /*    case R.id.action_search:
                 SearchView searchView = (SearchView) item.getActionView();
 
                 searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -92,7 +92,7 @@ public class Catalog extends AppCompatActivity implements OnCatalogItemClick {
                         catalogItemAdapter.getFilter().filter(newText);
                         return false;
                     }
-                });
+                }); */
             default:
                 return super.onOptionsItemSelected(item);
         }

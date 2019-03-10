@@ -53,7 +53,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Please Enter Name"
-                            android:inputType="textPersonName"
+                            android:inputType="textCapSentences"
                             android:imeOptions="actionNext"
                             android:textColorHint="@color/colorAccent" />
 
@@ -81,6 +81,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address Line 1"
+                            android:inputType="textCapSentences"
                             android:imeOptions="actionNext"
                             android:textColorHint="@color/colorAccent" />
 
@@ -96,6 +97,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address Line 2"
+                            android:inputType="textCapSentences"
                             android:imeOptions="actionNext"
                             android:textColorHint="@color/colorAccent" />
 
@@ -111,6 +113,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="City"
+                            android:inputType="textCapSentences"
                             android:imeOptions="actionNext"
                             android:textColorHint="@color/colorAccent" />
 
@@ -168,16 +171,15 @@
                     android:src="@mipmap/ic_threadicon"
                     app:civ_border_color="#FFFFFF"
                     app:civ_border_width="2dp" />
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/updateProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignEnd="@+id/imageview_account_profile"
-                    android:clickable="true"
-                    android:layout_marginTop="10dp"/>
-                <!--     android:src="@drawable/ic_person_black_24dp" -->
+                <!-- <android.support.design.widget.FloatingActionButton
+                   android:id="@+id/updateProfile"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentTop="true"
+                   android:layout_alignEnd="@+id/imageview_account_profile"
+                   android:clickable="true"
+                   android:layout_marginTop="10dp"/>
+                  android:src="@drawable/ic_person_black_24dp" -->
 
 
             </RelativeLayout>
