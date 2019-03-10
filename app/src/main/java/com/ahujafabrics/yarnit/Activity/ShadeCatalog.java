@@ -1,5 +1,6 @@
 package com.ahujafabrics.yarnit.Activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -131,6 +133,9 @@ public class ShadeCatalog  extends AppCompatActivity implements View.OnClickList
                     //Clear the search shade and Qty fields
                     searchShade.getText().clear();
                     qtySpinner.setSelection(qtySpinnerAdapter.getPosition("1"));
+
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(searchShade.getWindowToken(), 0);
                 }
             }
             break;
